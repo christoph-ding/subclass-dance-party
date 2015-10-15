@@ -15,10 +15,14 @@ BlinkyDancer.prototype.step = function() {
   // oldStep.call(this);
   var realthis = this;
   var goLeft = function() {
-    realthis.$node.animate({left: "+=500"}, 1000, goRight);
+    if (!realthis.lineUpFlag) {
+      realthis.$node.animate({left: "+=500"}, 1000, goRight);
+    }
   }
   var goRight = function() {
-    realthis.$node.animate({left: "-=500"}, 1000, goLeft);
+    if (!realthis.lineUpFlag) {
+      realthis.$node.animate({left: "-=500"}, 1000, goLeft);
+    }
   }
   goLeft();
 };

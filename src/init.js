@@ -1,6 +1,25 @@
 $(document).ready(function() {
   window.dancers = [];
 
+  $(".lineUpButton").on("click", function(event) {
+    var leftTop = 20;
+    var rightTop = 20;
+    var left = 350;
+    var right = 1400;
+
+    for (var i = 0; i<window.dancers.length; i++) {
+      if (i % 2 === 0) {
+        window.dancers[i].lineUp(leftTop, left);
+        left -= 20;
+        leftTop += 35;
+      } else {
+        window.dancers[i].lineUp(rightTop, right);
+        right += 20;
+        rightTop += 35;
+      }
+    }
+  })
+
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -25,17 +44,21 @@ $(document).ready(function() {
       LeftDancer : ["images/dhalsim.gif", "images/dhalsim-alphawin.gif"],
       RightDancer : ["images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"],
       FadeDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
-      BlinkyDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"]
+      BlinkyDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
+      StalkerDancer : ["images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"]
     };
     var randIndex = Math.floor(Math.random() * imageBank[dancerMakerFunctionName].length);
     var imageName = imageBank[dancerMakerFunctionName][randIndex];
+    var stalkerTarget = window.dancers[Math.floor(Math.random() * window.dancers.length)];
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 200 + 100,
-      imageName
+      imageName,
+      stalkerTarget
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
 });
