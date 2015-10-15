@@ -41,11 +41,11 @@ $(document).ready(function() {
 
     // make a dancer with a random position
     var imageBank = {
-      LeftDancer : ["images/dhalsim.gif", "images/dhalsim-alphawin.gif"],
-      RightDancer : ["images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"],
-      FadeDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
-      BlinkyDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
-      StalkerDancer : ["images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"]
+      LeftDancer : ["images/ryu-hurricane-ts.gif", "images/bison-flyback.gif","images/guile-cfe-roll.gif", "images/spidey-walk1.gif","images/dhalsim.gif", "images/dhalsim-alphawin.gif"],
+      RightDancer : ["images/wolvie-tornado.gif","images/cyclops-running1.gif", "images/blanka-walkback.gif", "images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"],
+      FadeDancer : [ "images/wolvie-tnt.gif","images/magneto-crouch-fp.gif", "images/captainamerica-thumbsup.gif","images/iron-diz.gif","images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
+      BlinkyDancer : ["images/bison-teleport.gif","images/hulk-spins.gif", "images/magneto-hands-stance.gif", "images/iron-wins.gif", "images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif", "images/blanka-rolling.gif"],
+      StalkerDancer : ["images/col-walk.gif", "images/dualblitz.gif", "images/spidey-standingattax.gif","images/ehonda-100handslap.gif", "images/iron-fly.gif"]
     };
     var randIndex = Math.floor(Math.random() * imageBank[dancerMakerFunctionName].length);
     var imageName = imageBank[dancerMakerFunctionName][randIndex];
