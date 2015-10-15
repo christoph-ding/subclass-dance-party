@@ -21,11 +21,20 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var imageBank = {
+      LeftDancer : ["images/dhalsim.gif", "images/dhalsim-alphawin.gif"],
+      RightDancer : ["images/wolvie-activate.gif", "images/ryu.gif", "images/chunny-ts-birdkick.gif"],
+      FadeDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"],
+      BlinkyDancer : ["images/blanka-electric.gif", "images/dr-launch.gif", "images/dr-super.gif"]
+    };
+    var randIndex = Math.floor(Math.random() * imageBank[dancerMakerFunctionName].length);
+    var imageName = imageBank[dancerMakerFunctionName][randIndex];
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 200 + 100,
+      imageName
     );
     $('body').append(dancer.$node);
   });

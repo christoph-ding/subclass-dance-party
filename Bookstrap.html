@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://bookstrap.hackreactor.com/curriculum/subclass-dance-party -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <meta charset="utf8">
+    <title>Bookstrap</title>
+    <meta type="description" content="Hack Reactor&#39;s student management software.">
+    <link rel="icon" href="http://bookstrap.hackreactor.com/favicon.ico" type="image/x-icon">
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="bookstrap-client-config" content="{&quot;onsiteVideoUrlRoot&quot;:&quot;http://10.0.0.10/&quot;}">
+
+    
+    <link rel="stylesheet" href="http://bookstrap.hackreactor.com/styles/app.min.css?v=0.21.47">
+    
+
+    <link href="./Bookstrap_files/css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body class="">
+    <div id="bookstrap" class="full-height ng-scope" fdn-off-canvas-wrap="" post-message=""><div class="off-canvas-wrap ng-isolate-scope move-right"><div class="inner-wrap full-height" ng-transclude="">
+  <!-- uiView: left-drawer --><section ui-view="left-drawer" class="ng-scope"> <a fdn-off-canvas-toggle="" ng-click="chooseTab(&#39;getHelpTab&#39;)" ng-show="showGetHelpTab" class="get-help-tab help-tab ng-scope" ng-class="{ outstanding: outstandingRequest.$open }">Get Help</a> <a fdn-off-canvas-toggle="" ng-show="showGiveHelpTab" ng-click="chooseTab(&#39;giveHelpTab&#39;)" class="give-help-tab help-tab ng-scope ng-hide">Give Help</a><div fdn-off-canvas-body="" class="ng-scope"><div class="left-off-canvas-menu" ng-transclude=""><div ng-show="showGetHelpPanel" style="padding: 10px" class="ng-scope"><bs-help-request-menu ng-controller="studentHelpRequestMenuController" class="ng-scope"><section class="row"><h2 class="ng-binding">Help</h2><!-- ngInclude: 'help/templates/request-menu/outstanding-request.html' --><div ng-show="outstandingRequest.id" ng-include="&#39;help/templates/request-menu/outstanding-request.html&#39;" class="ng-scope ng-hide"><p class="text-center ng-scope">You have an outstanding request.</p><table class="ng-scope"><tbody><tr><th>Text:</th><td class="ng-binding">No text</td></tr><!-- ngIf: outstandingRequest.isRemote --><tr><th>Location:</th><td class="ng-binding">Loading...</td></tr><tr><th>State:</th><td ng-switch="outstandingRequest.state"><!-- ngSwitchWhen: OPEN --> <!-- ngSwitchWhen: ASSIGN --></td></tr><tr><th>Filed At:</th><td class="ng-binding"></td></tr></tbody></table><p class="text-center ng-scope"><a class="button tiny alert" ng-click="cancelOutstandingRequest(outstandingRequest)">Cancel Request</a></p></div><div ng-form="form" ng-hide="outstandingRequest.id" ng-submit="submit()" class="ng-pristine ng-invalid ng-invalid-required"><!-- ngIf: !currentUser.isRemote --><!-- ngInclude: 'help/templates/request-menu/floor.html' --><div ng-if="!currentUser.isRemote" ng-include="&#39;help/templates/request-menu/floor.html&#39;" class="ng-scope"><label class="ng-scope"><span class="small-caps">Your Location</span><select name="location" ng-model="pendingRequest.location" ng-options="location.name for location in locations" required="" class="ng-pristine ng-invalid ng-invalid-required"><option value="" class="">Select a Location</option><option value="0">6th floor</option><option value="1">8th floor</option><option value="2">Remote</option></select><small ng-show="form.location.$invalid &amp;&amp; form.location.$dirty" class="error ng-hide">You must select a location.</small></label></div><!-- end ngIf: !currentUser.isRemote --><!-- ngIf: !currentUser.isRemote --><!-- ngInclude: 'help/templates/request-menu/coordinates.html' --><div ng-if="!currentUser.isRemote" ng-include="&#39;help/templates/request-menu/coordinates.html&#39;" class="ng-scope"><label class="ng-scope"><span class="small-caps">Your Position</span><div class="map-container"><img id="sidebar-request-map" ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAACzCAMAAABl/PMnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRFAAAAgICAQEBAv7+/7+/vMDAwEBAQr6+vcHBwz8/Pn5+fICAgYGBg39/fUFBQ////wgyYpwAAABB0Uk5T////////////////////AOAjXRkAAAMXSURBVHja7NjbdqUgDIBhToLH8v5vOyFRYU/3XLRXtvNnrXYRUZSvGrGuEm/DQQAMMMAAAwwwwAADDDDAEMAAAwwwwAADDDDAAAMMAQwwwAADDDDAAAMMMMAQwAADDDDAAAMMMMAAAwwBDDDAAAMMMMAAAwwwwABDAAMMMMAAAwwwwAADDDAEMMAAAwwwwAADDDDAAEMA8wyYYw5hjd7Hbx29en984Vzerz8GJjvnvJefbx0dnHsv+nbE6Fz4KTByrbkcwPzjWv9bmDWExWc3LdIuk3PbnqxjliSH9ZyG35ybdD53K4R5CeeFpL1tLa1Y7NnlNobB3GldPmRwOS7InltYajxzGTG7UB4HIxOXKxQDMXIa0/0X7zVmt655bMmeMkdzmWxrqSlfYyhMTxdr7dX2jPEex+vpnwiTS2mXKsU2L22KRTsW6Zmi1ZhFmqlNLfWWznCy2QhpSDLVjzbc3H6tBtNT0d+jDL7EvbVSaOeRjUcV3blsT4SZ7c+rExsqwFBjbGPbqbcajH8dJMytJ9XUUt2np67dXKUPpreR5CVpj38izMucexUcYKxetGZv2VTrdcfkWVct+pTokReepTbY0RZFenBst6Oe0nri74SpWmOmtZ4VZISxdJj4BWPxy2GqVxrd6Fus/XHT9A3Mpj3xl8PY6zgPGy+YcbBFvjFumJfTPBnmG8V3GCTqY9SeqWMovj3VBUEvvrJt+ynFV67QXtfxE0w5X9I59dZfMHvbaWvLnLnO9+u6p9P5el6qLgPS1kzCs1/X1y0wX3Xz8yfBuYB7aQ0wh63eZP5na0s2ZE+L7fFRrRV7/tAF3toe+zrLh4Gt9jefrqLR1iVnf5KVvb51hlYIYSgw+fwk0FKzH9eQd2rfGzq4D61ryNsXiZ6Mf1TxHzxggAEGGGCAAYYABhhggAEGGGCAAQYYYAhggAEGGGCAAQYYYIABhgAGGGCAAQYYYIABBhhgCGCAAQYYYIABBhhggAEGGAIYYIABBhhggAEGGGCAIYABBhhggAEGGGCAAQYYAhhggAEGGGCeF38EGACJzTn1zVyQhQAAAABJRU5ErkJggg==" ng-click="handleImageClick($event, pendingRequest)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAACzCAMAAABl/PMnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBQTFRFAAAAgICAQEBAv7+/7+/vMDAwEBAQr6+vcHBwz8/Pn5+fICAgYGBg39/fUFBQ////wgyYpwAAABB0Uk5T////////////////////AOAjXRkAAAMXSURBVHja7NjbdqUgDIBhToLH8v5vOyFRYU/3XLRXtvNnrXYRUZSvGrGuEm/DQQAMMMAAAwwwwAADDDDAEMAAAwwwwAADDDDAAAMMAQwwwAADDDDAAAMMMMAQwAADDDDAAAMMMMAAAwwBDDDAAAMMMMAAAwwwwABDAAMMMMAAAwwwwAADDDAEMMAAAwwwwAADDDDAAEMA8wyYYw5hjd7Hbx29en984Vzerz8GJjvnvJefbx0dnHsv+nbE6Fz4KTByrbkcwPzjWv9bmDWExWc3LdIuk3PbnqxjliSH9ZyG35ybdD53K4R5CeeFpL1tLa1Y7NnlNobB3GldPmRwOS7InltYajxzGTG7UB4HIxOXKxQDMXIa0/0X7zVmt655bMmeMkdzmWxrqSlfYyhMTxdr7dX2jPEex+vpnwiTS2mXKsU2L22KRTsW6Zmi1ZhFmqlNLfWWznCy2QhpSDLVjzbc3H6tBtNT0d+jDL7EvbVSaOeRjUcV3blsT4SZ7c+rExsqwFBjbGPbqbcajH8dJMytJ9XUUt2np67dXKUPpreR5CVpj38izMucexUcYKxetGZv2VTrdcfkWVct+pTokReepTbY0RZFenBst6Oe0nri74SpWmOmtZ4VZISxdJj4BWPxy2GqVxrd6Fus/XHT9A3Mpj3xl8PY6zgPGy+YcbBFvjFumJfTPBnmG8V3GCTqY9SeqWMovj3VBUEvvrJt+ynFV67QXtfxE0w5X9I59dZfMHvbaWvLnLnO9+u6p9P5el6qLgPS1kzCs1/X1y0wX3Xz8yfBuYB7aQ0wh63eZP5na0s2ZE+L7fFRrRV7/tAF3toe+zrLh4Gt9jefrqLR1iVnf5KVvb51hlYIYSgw+fwk0FKzH9eQd2rfGzq4D61ryNsXiZ6Mf1TxHzxggAEGGGCAAYYABhhggAEGGGCAAQYYYAhggAEGGGCAAQYYYIABhgAGGGCAAQYYYIABBhhgCGCAAQYYYIABBhhggAEGGAIYYIABBhhggAEGGGCAIYABBhhggAEGGGCAAQYYAhhggAEGGGCeF38EGACJzTn1zVyQhQAAAABJRU5ErkJggg=="><div><!-- ngIf: pendingRequest.xCoord && pendingRequest.yCoord --></div></div></label></div><!-- end ngIf: !currentUser.isRemote --><!-- ngInclude: 'help/templates/request-menu/text.html' --><div ng-include="&#39;help/templates/request-menu/text.html&#39;" class="ng-scope"><label class="ng-scope"><span class="small-caps">Your question</span><div><textarea class="request-text ng-valid-maxlength ng-animate ng-dirty-remove ng-pristine-add ng-valid-remove ng-invalid-add ng-valid-required-remove ng-dirty-remove-active ng-pristine ng-pristine-add-active ng-valid-remove-active ng-invalid ng-invalid-add-active ng-valid-required-remove-active ng-invalid-required" rows="4" name="text" ng-model="pendingRequest.text" placeholder="Add a clear and specific question here. (E.g. &quot;Backbone model events aren&#39;t bubbling up through to their collection.&quot;)" ng-maxlength="150" required="" style="">    </textarea><small ng-show="form.text.$invalid &amp;&amp; !form.text.$pristine" class="error ng-hide"><span ng-show="form.text.$error.required" class="">Please add a question.</span> <span ng-show="form.text.$error.maxlength" class="ng-binding ng-hide">Your question is too long (-150 characters over).</span></small></div><label></label></label></div><!-- ngIf: currentUser.isRemote --><span class="right" ng-show="!createRequestError"><a class="button tiny alert cancel-button exit-off-canvas" ng-click="resetForm()">Cancel</a> <button class="tiny" ng-click="submit()" ng-disable="form.$dirty">Submit</button></span> <button class="button tiny alert ng-hide" ng-show="createRequestError" ng-click="createRequestError = !createRequestError">Try again. Ok?</button></div></section></bs-help-request-menu></div><div ng-show="showGiveHelpPanel" ng-class="{ &#39;headerRedAlertMode&#39;: helpState.redAlertRequests.length }" ng-controller="AgentPanelController" class="ng-scope ng-hide"><bs-agent-floor-selection><div class="row"><div class="medium-4 columns"><h1 class="help-main-text">Help</h1></div><div class="medium-7 columns"><div class="floor-select text-right">Where:<select ng-model="selectedLocation" ng-options="location.name for location in locations track by location.id" ng-disabled="currentUser.activeInstructor" ng-change="requestsForLocation();" class="ng-pristine ng-valid"><option value="1" selected="selected">6th floor</option><option value="2">8th floor</option><option value="3">Remote</option></select></div><a class="button small right secondary" ng-class="{ false: &#39;secondary&#39; }[currentUser.activeInstructor]" ng-click="toggleActive();"><span ng-hide="currentUser.activeInstructor" class="">Go Active</span> <span ng-show="currentUser.activeInstructor" class="ng-hide">Go Inactive</span></a></div></div></bs-agent-floor-selection><bs-agent-help-request-menu><!-- ngIf: alreadyTaken --><!-- ngIf: currentUser.activeInstructor && !request && !helpState.redAlertRequests.length --><!-- ngIf: !currentUser.activeInstructor --><div ng-if="!currentUser.activeInstructor" class="text-center ng-scope"><p>You are not an active instructor.</p></div><!-- end ngIf: !currentUser.activeInstructor --><!-- ngIf: request --><!-- ngRepeat: request in helpState.redAlertRequests --></bs-agent-help-request-menu></div></div></div></section>
+
+  <!-- uiView: header --><header class="container header ng-scope" ui-view="header"><div class="row ng-scope"><div class="small-8 columns"><h2 class="small ng-binding" ng-class="{ &#39;header-title&#39;: isMobile }"><a ui-sref="root.home" href="http://bookstrap.hackreactor.com/"><i class="small-push-2 fa fa-home"></i></a>&nbsp;subclass dance party</h2></div><div class="large-4 columns"><nav class="nav"><ul class="right inline-list"><li class="nav-item"><a dropdown-toggle="#header-nav-menu" class="ng-isolate-scope"><span class="username ng-binding">Chris Ding</span> <i class="fa fa-caret-down"></i> &nbsp; <img class="avatar" ng-src="http://www.gravatar.com/avatar/2a0c9d9cb57828164eef63d50ab67b4d" src="./Bookstrap_files/2a0c9d9cb57828164eef63d50ab67b4d"></a><ul id="header-nav-menu" class="f-dropdown" style="display: none;"><li><a ui-sref="root.profile({ id: user.id })" href="http://bookstrap.hackreactor.com/user/1143"><i class="fa fa-user"></i> Profile</a></li><li><a ui-sref="root.attendance" href="http://bookstrap.hackreactor.com/attendance"><i class="fa fa-users"></i> Attendance</a></li><li ng-show="user.isStaffMember" class="ng-hide"><a ui-sref="root.lectern.entry" href="http://bookstrap.hackreactor.com/lectern/"><i class="fa fa-question"></i> Staff-Wiki</a></li><li ng-show="user.isAdmin" class="ng-hide"><a ui-sref="root.admin" href="http://bookstrap.hackreactor.com/admin"><i class="fa fa-cog"></i> Admin</a></li><li ng-show="user.isAdmin" class="ng-hide"><a ui-sref="root.page" href="http://bookstrap.hackreactor.com/pages/"><i class="fa fa-file"></i> Page</a></li><li><a ui-sref="root.logout" target="_self" href="http://bookstrap.hackreactor.com/auth/logout"><i class="fa fa-sign-out"></i> Log Out</a></li></ul><div ng-show="user.isStaffMember" class="ng-hide"><div ng-show="user.isActive()" class="ng-binding ng-hide">Active on the </div><div ng-show="!user.isActive()" class="outstanding">Not an active instructor</div></div></li><!-- ngIf: !user.isStaffMember --><li ng-if="!user.isStaffMember" class="ng-scope"><!-- ngIf: header.newAnnouncements < 1 --><a ng-if="header.newAnnouncements &lt; 1" ui-sref="root.home" class="ng-scope" href="http://bookstrap.hackreactor.com/"><i class="fa fa-envelope-o"></i></a><!-- end ngIf: header.newAnnouncements < 1 --> <!-- ngIf: header.newAnnouncements > 0 --></li><!-- end ngIf: !user.isStaffMember --></ul></nav></div></div></header>
+
+  <!-- uiView: container --><section class="container main ng-scope" ui-view="container"><section class="row ng-scope"><div class="container readme-contents-curriculum"><!-- ngIf: loading --><!-- ngIf: !loading --><markdown ng-if="!loading" class="curriculum-content ng-scope ng-pristine ng-valid" ng-model="curriculum.content"><h1 id="subclass-dance-party" class="ng-scope">Subclass Dance Party</h1>
+<p class="ng-scope"><em>An exploration in polymorphism and inheritance.</em></p>
+<h2 id="what-is-polymorphism-" class="ng-scope">What is polymorphism?</h2>
+<p class="ng-scope">When constructing applications, it is often the case that you will need to construct objects that share common methods or traits. Dancers, for example, all display individual unique traits, however they also share the ability to dance, to stop dancing, and to line up. By creating dancers that are <em>subclasses</em> of a <code>Dancer</code> class, you can exhibit individuality while allowing your dancers to <em>inherit</em> useful methods from their <em>superclass</em>. This ability of the <code>Dancer</code> class to manifest in various <em>subclass</em> forms is <em>polymorphism</em>.</p>
+<h2 id="important-files" class="ng-scope">Important Files</h2>
+<ul class="ng-scope">
+<li><code>dancefloor.html</code> a dancer-indiscriminate stage.</li>
+<li><code>src</code> contains <code>dancer.js</code> and <code>blinkyDancer.js</code> with some code that you'll refactor and then extend with new types of dancers.</li>
+<li><code>spec</code> contains a few tests--you'll be adding more.</li>
+<li><code>SpecRunner.html</code> runs the tests.</li>
+</ul>
+<h2 id="understand" class="ng-scope">Understand</h2>
+<ul class="ng-scope">
+<li>How <code>dancefloor.html</code>, <code>src/init.js</code>, <code>src/dancer.js</code>, and <code>src/blinkyDancer.js</code> relate.</li>
+<li>Which CSS statements  in <code>styles.css</code>  make the dancers circular.</li>
+<li>How to make an kick-ass <a href="http://giphy.com/gifdanceparty/">dance party</a>.</li>
+</ul>
+<h2 id="bare-minimum-requirements" class="ng-scope">Bare Minimum Requirements</h2>
+<p class="ng-scope">Complete all the bare minimum requirements before moving on to the advanced content.</p>
+<ul class="ng-scope">
+<li><p><input type="checkbox" class="readme-checkbox" name="task-1">Read the <a href="http://bookstrap.hackreactor.com/curriculum/taxonomy">taxonomy</a> README. Then fork the repo from the hackreactor github org (which you'll have recently been given access to on github) and complete the excersises described within so that all of the specs pass.</p>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-2">Refactor the <code>Dancer</code> class and its subclass <code>BlinkyDancer</code> from functional inheritance to pseudoclassical.</p>
+<ul>
+<li>Feel free to Refer to the lecture slides on Code Sharing Patterns</li>
+</ul>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-3">Make at least two new kinds of dancers. This will require creating a new factory function for each one (and making sure that your new javascript files are included in dancefloor.html).</p>
+<ul>
+<li>Add a link in the top bar of <code>dancefloor.html</code> to create a dancer of each new type you create</li>
+<li>Write tests for new types. Use <code>spec/blinkyDancerSpec.js</code> as a template for new test files, and make sure to include them in <code>SpecRunner.html</code>.</li>
+</ul>
+</li>
+<li><p>Having trouble coming up ideas? Here are some example hierarchies:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Interpretive_dance">Dancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Pop_dance">PopDancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Rick_Astley">RickAstleyDancer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpretive_dance">Dancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Capoeira">FightingDancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Zangief">ZangiefDancer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpretive_dance">Dancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Deflection_(physics)">BouncyDancer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpretive_dance">Dancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Super_hero">SuperHeroDancer</a> &gt; <a href="https://en.wikipedia.org/wiki/Batman">BatmanDancer</a></li>
+</ul>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-4">Make your dancers visually distinct and adorable with CSS and JS!</p>
+<ul>
+<li>Changing colors!</li>
+<li>Moving around the page!</li>
+<li>Growing or shrinking in size!</li>
+<li>Other shapes besides circles!</li>
+<li>Rotation!</li>
+</ul>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-5">Make a button that, when clicked, tells all the dancers to line up against one side of the dance floor. Remember you've got a global array of all created dancers (it's defined in <code>src/init.js</code>) so you can loop through that array and tell each object to <code>lineUp</code>.  You'll need to add a <code>lineUp</code> method to each of your dancer types - they don't all have to do exactly the same thing.</p>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-6">Use an image (<code>&lt;img&gt;</code> tag or CSS <code>background-image</code>) instead of plain-jane RGB to add some pizzazz!</p>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-7">Make dancers that interact with other dancers. For example, by iterating across the array <code>window.dancers</code> and using the Pythagorean Theorem to calculate your distance from each other dancer, you can have a dancer find its <code>n</code> closest neighbors and do something based on their positions.</p>
+</li>
+<li><p><input type="checkbox" class="readme-checkbox" name="task-8">Make a dancer that reacts to the mouse (use jQuery to add a <code>mouseover</code> handler).</p>
+</li>
+</ul>
+<h2 id="example-" class="ng-scope">Example:</h2>
+<p class="ng-scope"><img src="./Bookstrap_files/52781e56-90d6-11e4-97df-1ecc35c9b63c.gif" alt="Project Demo Image"></p>
+<h2 id="advanced" class="ng-scope">Advanced</h2>
+<p class="ng-scope">Our advanced content is intended to throw you in over your head, requiring you to solve problems with very little support or oversight, much like you would as a mid or senior level engineer.</p>
+<ul class="ng-scope">
+<li>Use at least 2 different CSS3 transitions to do cool special effects with your dancers</li>
+<li>Create a new dance floor with its own unique properties for the dancers to inherit. Polymorph all the things!</li>
+<li>Make your dancers break out in a moving conga line after having them line up</li>
+<li>Trig class was a waste of time, right? WRONG! Use polar coordinates to trace out some <a href="http://en.wikipedia.org/wiki/Lissajous_curve">sweet paths</a> for your dancers to follow across the floor. Implement at least one of these paths</li>
+<li>Use HTML5 <code>&lt;audio&gt;</code> tags to add some hot beats for your dancers to move and groove to</li>
+</ul>
+<h2 id="nightmare-mode" class="ng-scope">Nightmare Mode</h2>
+<ul class="ng-scope">
+<li>Allow users of the the site create their own dancers on the fly by picking dancing behaviors from a list and uploading their own dancer image</li>
+<li>Allow users to control the dancers with the trackpad or keyboard</li>
+<li>Implement a <a href="https://en.wikipedia.org/wiki/Particle_system">particle system</a></li>
+</ul>
+<h2 id="relevant-documentation-" class="ng-scope">Relevant Documentation:</h2>
+<ul class="ng-scope">
+<li><a href="http://api.jquery.com/">jQuery</a> is a library used extensively in this project to easily create and modify HTML DOM nodes in the web page.</li>
+<li><a href="http://api.jquery.com/css/">jQuery CSS</a></li>
+<li><a href="http://api.jquery.com/category/effects/">jQuery effects</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/CSS/CSS_Reference">CSS reference</a></li>
+<li><a href="http://www.w3schools.com/css/default.asp">CSS tutorial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polymorphism_%28computer_science%29">Polymorphism on Wikipedia</a></li>
+</ul>
+</markdown><!-- end ngIf: !loading --></div></section></section>
+</div></div></div>
+
+
+<script src="./Bookstrap_files/build.min.js" gapi_processed="true"></script>
+
+
+  
+
+</body></html>
