@@ -16,8 +16,25 @@ BlinkyDancer.prototype.step = function() {
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  var bit = Math.floor(Math.random() + 1);
-  var realthis = this;
-  bit ? realthis.$node.animate({left: this.left+=1000}) : realthis.$node.animate({right: "+=20"});;
-  
+
+  // Moon walking left Dhalsim
+  //this.$node.css({left: this.$node.position().left - 22 + "px"});
+
+  // Sliding Dancing Dhalsim
+  // this.$node.css({left: this.$node.position().left - 17 + "px"});  
+
+  // Blankca Appears and Fades Out
+  // this.$node.fadeToggle("slow");
+
+  // Dr Doom Appears and Fades Out
+  //this.$node.fadeToggle("slow");
+
+  // Charging Right Wolverine
+  // this.$node.css({left: this.$node.position().left + 22 + "px"});
+
+  // Chun Li Moving Right
+  // this.$node.css({left: this.$node.position().left + 22 + "px"});
+
+  // Ryu Moving Right
+  // this.$node.css({left: this.$node.position().left + 22 + "px"});
 };
