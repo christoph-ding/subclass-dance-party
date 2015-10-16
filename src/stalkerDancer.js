@@ -21,7 +21,9 @@ StalkerDancer.prototype.step = function() {
   // other effects you can use on a jQuery-wrapped html tag.
   var realThis = this;
   //debugger;
-  this.$node.animate({left: realThis.stalkerTarget.$node.position().left, 
-                      top: realThis.stalkerTarget.$node.position().top
-  }, 300);
+  if (realThis.stalkerTarget.$node) {
+    this.$node.animate({left: realThis.stalkerTarget.$node.position().left, 
+                        top: realThis.stalkerTarget.$node.position().top
+    }, 300);
+  }
 };
